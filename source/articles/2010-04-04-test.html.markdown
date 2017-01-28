@@ -1,9 +1,9 @@
 ---
-title: "Tri-tip t-bone meatball brisket"
+title: Tri-tip t-bone
 tags:
-- frankfurter
+- tenderloin
+- pancetta
 - pastrami
-- spare ribs
 ---
 Bacon ipsum dolor amet shank bacon swine short loin salami ribeye pork chop
 t-bone pancetta. Doner rump short loin t-bone ham prosciutto. Tenderloin

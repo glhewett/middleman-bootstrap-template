@@ -1,17 +1,21 @@
 ---
 title: Articles Tagged With
 pageable: true
-per_page: 10
+per_page: 5
 ---
 <div id="calendar" class="container">
   <div class="row">
     <div class="col-lg-12">
       <ol class="breadcrumb">
         <li><%= link_to "Home", uri_root_path %></li>
-        <li class="active"><%= tagname %></li>
+        <li><%= link_to "Articles", "/articles" %></li>
+        <li class="active">Articles Tagged With &lsquo;<%= tagname %>&rsquo;</li>
       </ol>
       <h1>Articles Tagged With &lsquo;<%= tagname %>&rsquo;</h1>
-
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9">
       <% page_articles.each_with_index do |article, i| %>
         <h3><%= article.title %></h3>
         <p class="article-date">
@@ -52,5 +56,6 @@ per_page: 10
         </nav>
       <% end %>
     </div>
+    <%= partial "layouts/articles_side_bar" %>
   </div>
 </div>

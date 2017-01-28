@@ -1,6 +1,7 @@
 ---
 title: Archives
 pageable: true
+per_page: 5
 ---
 <div id="calendar" class="container">
   <div class="row">
@@ -13,7 +14,7 @@ pageable: true
           <li><%= link_to Date.new(year, month, day).strftime("%B"), blog_month_path(year, month) %></li>
           <li class="active"><%= day %></li>
         </ol>
-        <h1>Archive for <%= Date.new(year, month, day).strftime('%B %e %Y') %></h1>
+        <h1>Archive for <%= Date.new(year, month, day).strftime('%B %e, %Y') %></h1>
       <% elsif page_type == "month" %>
         <ol class="breadcrumb">
           <li><%= link_to "Home", uri_root_path %></li>
@@ -30,6 +31,10 @@ pageable: true
         </ol>
         <h1>Archive for <%= year %></h1>
       <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9 col-md-8 col-sm-7">
 
       <% page_articles.each_with_index do |article, i| %>
         <h3><%= article.title %></h3>
@@ -71,5 +76,6 @@ pageable: true
         </nav>
       <% end %>
     </div>
+    <%= partial "layouts/articles_side_bar" %>
   </div>
 </div>
