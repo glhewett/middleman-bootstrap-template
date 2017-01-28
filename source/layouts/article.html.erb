@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <%= partial "layouts/head" %>
+    <style type="text/css">
+      <%= Rouge::Themes::Github.render(:scope => '.highlight') %>
+      td.gutter {
+        background-color: #eeeeee;
+      }
+      td.code {
+        width: 95%;
+        overflow: auto;
+      }
+      td pre {
+        font-family: "Inconsolata", monospace;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body class="<%= page_classes %>">
+    <%= partial "layouts/header" %>
+    <div id="article" class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <ol class="breadcrumb">
+            <li><%= link_to "Home", uri_root_path %></li>
+            <li><%= link_to current_article.date.year, blog_year_path(current_article.date.year) %></li>
+            <li><%= link_to current_article.date.strftime("%B"), blog_month_path(current_article.date.year, current_article.date.month) %></li>
+            <li><%= link_to current_article.date.day, blog_day_path(current_article.date.year, current_article.date.month, current_article.date.day) %></li>
+            <li class="active"><%= current_article.title %></li>
+          </ol>
+          <h1 class="article-title"><%= current_article.title %></h1>
+          <p class="article-date">
+            <%= current_article.date.strftime('%B %e, %Y') %>
+          </p>
+          <p class="article-tags">
+            <% current_article.tags.each do |tag| %>
+              <span class="label label-primary"><%= tag %></span>
+            <% end %>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-9 col-md-8 col-sm-7">
+          <%= yield %>
+          <nav aria-label="...">
+            <ul class="pager">
+              <% if current_article.previous_article %>
+                <li class="previous"><%= link_to "<span aria-hidden=\"true\" class=\"fa fa-arrow-circle-left\"></span>&nbsp;" + current_article.previous_article.title, current_article.previous_article.url %></li>
+              <% end %>
+
+              <% if current_article.next_article %>
+                <li class="next"><%= link_to current_article.next_article.title + "&nbsp;<span aria-hidden=\"true\" class=\"fa fa-arrow-circle-right\"></span>", current_article.next_article.url %></li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+        <%= partial "layouts/articles_side_bar" %>
+      </div>
+    </div>
+    <%= partial "layouts/footer" %>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

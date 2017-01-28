@@ -1,0 +1,8 @@
+<div id="recent-articles">
+  <h3>Article Tags</h3>
+  <ul>
+  <% blog.tags.each do |tag, articles| %>
+    <li><%= link_to tag, tag_path(tag) %></li>
+  <% end %>
+  </ul>
+</div>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= partial "layouts/head" %>
+  </head>
+  <body class="<%= page_classes %>">
+    <%= partial "layouts/header" %>
+    <div class="container" id="application">
+      <%= yield %>
+    </div>
+    <%= partial "layouts/footer" %>
+    <%= partial "layouts/foot" %>
+  </body>
+</html>

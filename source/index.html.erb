@@ -1,0 +1,29 @@
+---
+title: Home
+---
+<% current_article = blog.articles.first %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <ol class="breadcrumb">
+        <li class="active">Home</li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9 col-md-8 col-sm-7">
+      <h1><%= current_article.title %></h1>
+      <p class="article-date">
+        <%= current_article.date.strftime('%b %e, %Y') %>
+      </p>
+      <p class="article-tags">
+        <% current_article.tags.each do |tag| %>
+          <span class="label label-primary"><%= tag %></span>
+        <% end %>
+      </p>
+      <p><%= current_article.summary %></p>
+    </div>
+    <%= partial "layouts/articles_side_bar" %>
+  </div>
+</div>

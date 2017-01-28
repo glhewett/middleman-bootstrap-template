@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+// dependencies
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap/theme';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// local style
+@import "header";
+@import "article";
+@import "footer";
+
+span.label {
+  font-weight: 300;
+}
